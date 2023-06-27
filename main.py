@@ -14,6 +14,10 @@ def save():
     shutil.copytree(read_path(), destination, dirs_exist_ok=True)
 
 
+def replace():
+    shutil.copytree(destination, read_path(), dirs_exist_ok=True)
+
+
 def delete():
     try:
         shutil.rmtree(destination)
@@ -24,7 +28,8 @@ def delete():
 def print_menu():
     print("""
     1. Save
-    2. Delete
+    2. Replace
+    3. Delete
     0. Exit
     """)
 
@@ -37,6 +42,8 @@ def menu():
         if option == "1":
             save()
         elif option == "2":
+            replace()
+        elif option == "3":
             delete()
         elif option == "0":
             print()
